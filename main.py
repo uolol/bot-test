@@ -62,4 +62,11 @@ async def on_message(message):
 # ボットを起動（DiscordのパスワードはRenderの「環境変数」から読み込むよ）
 keep_alive()  # Render用サーバーを起動
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
+
+# ちゃんと読み込めているかログに出す
+if TOKEN:
+    print(f"【確認】トークンが読み込めました（最初の5文字: {TOKEN[:5]}...）")
+else:
+    print("【エラー】DISCORD_BOT_TOKEN が取得できていません！")
+
 bot.run(TOKEN)
